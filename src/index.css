@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --primary: #6600ff;
+  --primary-foreground: #ffffff;
+
+  --background: #f5f5f5;
+  --foreground: #1a1a1a;
+
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1e293b;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+
+  --accent: #f1f5f9;
+  --accent-foreground: #1e293b;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #6600ff;
+
+  --radius: 0.5rem;
+
+  --card-morning: #ffe4c4;
+  --card-afternoon: #ffcccb;
+  --card-evening: #e0ffff;
+}
+
+.dark {
+  --primary: #7926ff;
+  --primary-foreground: #ffffff;
+
+  --background: #0f172a;
+  --foreground: #f8fafc;
+
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+
+  --secondary: #334155;
+  --secondary-foreground: #f8fafc;
+
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+
+  --accent: #334155;
+  --accent-foreground: #f8fafc;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+
+  --border: #334155;
+  --input: #334155;
+  --ring: #7926ff;
+
+  --card-morning: #a6601e;
+  --card-afternoon: #a65b59;
+  --card-evening: #5a96ad;
+}
+
+html.dark {
+  background-color: #111827; /* Dark Mode Background */
+  color: white; /* Dark Mode Text */
+}
+
+html.light {
+  background-color: white; /* Light Mode Background */
+  color: black; /* Light Mode Text */
+}
+
+/* Optional: Ensure Dark Mode on Specific Elements */
+.dark .bg-card {
+  background-color: #1f2937; /* Tailwind Gray-800 */
+}
+
+.dark .text-primary {
+  color: #facc15; /* Tailwind Yellow-400 */
+}
+
+.dark .text-secondary {
+  color: #ffffff; /* Tailwind Yellow-400 */
+}text-secondry
+
+.dark .border-border {
+  border-color: #374151; /* Tailwind Gray-700 */
+}
+
+
+
+/* @layer base {
+
+  body {
+    @apply bg-background text-foreground;
+  }
+} */
+
+/* @layer components {
+  .floating-ring {
+    @apply absolute z-0 animate-float;
+  }
+
+  .winner-card {
+    @apply bg-card rounded-xl p-4 flex items-center shadow-md mb-3;
+  }
+
+  .order-card {
+    @apply rounded-xl p-4 shadow-md mb-4 relative overflow-hidden;
+  }
+
+  .gradient-header {
+    @apply bg-primary text-white pt-6 pb-16 px-4 relative overflow-hidden;
+  }
+} */
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* Scrollbar width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: white; /* White scrollbar handle */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
