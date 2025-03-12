@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import Layout from "./components/Layout.tsx"
+import Layout from "./components/common/Layout.tsx"
 import WinnersPage from "./pages/Winners.tsx"
 import MorePage from "./pages/More.tsx"
 import ResultPage from "./pages/Result.tsx"

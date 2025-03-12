@@ -1,8 +1,8 @@
 import React from "react"
-import "../index.css"
+import "../../index.css"
 import Navigation from "./Navigation"
-import { Toaster } from "./ui/toaster"
-import { ThemeProvider } from "./theme-provider"
+import { Toaster } from "../ui/toaster"
+import { ThemeProvider } from "../theme-provider"
 
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {

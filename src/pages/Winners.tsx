@@ -1,6 +1,6 @@
 import  { useState } from "react";
 import Select from "react-select";
-import { winners } from "../lib/mock-data"; // Import mock data
+import { winners } from "../lib/mock-data"; 
 import medal1 from "../assets/medal 1.svg"
 import medal2 from "../assets/medal 2.svg"
 import medal3 from "../assets/medal 3.svg"

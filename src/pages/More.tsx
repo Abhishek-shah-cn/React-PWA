@@ -1,7 +1,7 @@
 import  { useState, useEffect } from "react"
 import { Moon, Sun, Settings, HelpCircle, LogOut, User } from "lucide-react"
-import { Switch } from "../components/ui/switch" // Import your Switch component
-import { toast } from "../hooks/use-toast" // Ensure this exists, or replace it
+import { Switch } from "../components/ui/switch" 
+import { toast } from "../hooks/use-toast" 
 
 export default function MorePage() {
   const [theme, setTheme] = useState("light")

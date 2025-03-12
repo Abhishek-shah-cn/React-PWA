@@ -1,14 +1,6 @@
 import React from "react"
 import { ChevronRight } from "lucide-react"
-
-type CardProps = {
-  title: string
-  subtitle: string
-  numbers: number[]
-  badgeText?: string
-  totalTickets?: number
-  totalAmount?: string
-}
+import { CardProps } from "../../lib/types";
 
 const Card: React.FC<CardProps> = ({ title, subtitle, numbers, badgeText, totalTickets, totalAmount }) => {
   return (

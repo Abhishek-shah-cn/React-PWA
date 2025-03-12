@@ -7,7 +7,7 @@ export default function PlayPage() {
   const [selectedNumber, setSelectedNumber] = useState<number | null>(null)
   const [message, setMessage] = useState<{ text: string; color: string } | null>(null)
 
-  const luckyNumber = 7 // Change this if you want another winning number
+  const luckyNumber = 7 
 
   const handleNumberClick = (num: number) => {
     setSelectedNumber(num)

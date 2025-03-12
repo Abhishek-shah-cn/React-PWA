@@ -1,17 +1,6 @@
-"use client"
-
 import { createContext, useContext, useState, type ReactNode } from "react"
-import type { Winner, Order } from "../lib/types"
+import type {AppContextType, Winner, Order, Theme } from "../lib/types"
 
-
-type AppContextType = {
-  winners: Winner[]
-  orders: Order[]
-  selectedPrize: string
-  setSelectedPrize: (prize: string) => void
-  theme: "light" | "dark"
-  toggleTheme: () => void
-}
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
@@ -19,8 +8,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [selectedPrize, setSelectedPrize] = useState<string>("All Prizes")
   const [theme, setTheme] = useState<"light" | "dark">("light")
 
-  const winners: Winner[] = [] // Default empty array
-  const orders: Order[] = [] // Default empty array
+  const winners: Winner[] = [] 
+  const orders: Order[] = [] 
 
 
 

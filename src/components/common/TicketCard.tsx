@@ -1,15 +1,6 @@
 import React from "react";
 import { ChevronRight } from "lucide-react";
-
-interface TicketCardProps {
-  companyName: string;
-  date: string;
-  time: string;
-  totalTickets: number;
-  totalAmount: number;
-  timeSlot: string;
-  imageUrl: string;
-}
+import { TicketCardProps } from "../../lib/types"; // ✅ Import from types
 
 const TicketCard: React.FC<TicketCardProps> = ({
   companyName,
@@ -59,7 +50,9 @@ const TicketCard: React.FC<TicketCardProps> = ({
         </div>
         <div className="flex flex-col text-right">
           <span className="text-xs">Total Amount</span>
-          <span className="font-bold text-lg text-green-600">₹{totalAmount.toFixed(2)}</span>
+          <span className="font-bold text-lg text-green-600">
+            ₹{totalAmount?.toFixed(2) || "0.00"}
+          </span>
         </div>
       </div>
     </div>
