@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, type ReactNode } from "react"
-import type {AppContextType, Winner, Order, Theme } from "../lib/types"
+import type {AppContextType, Winner, Order } from "../lib/types"
 
 
 const AppContext = createContext<AppContextType | undefined>(undefined)

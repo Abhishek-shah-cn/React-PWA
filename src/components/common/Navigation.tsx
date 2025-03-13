@@ -1,16 +1,21 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Nfc, PlayCircle, Clock, Trophy, MoreHorizontal, CheckCircle } from "lucide-react";
 import ThemeToggle from "../theme-toggle";
 import { useTheme } from "../theme-provider";
-import { NavItem, NavigationProps, NavItemLinkProps, NavigationComponentProps } from "../../lib/types"; // ✅ Import Types
+import { NavItem, NavigationProps, NavItemLinkProps, NavigationComponentProps } from "../../lib/types"; 
+
+import Home from "../../assets/home.svg";
+import History from "../../assets/history.svg";
+import Winner from "../../assets/winner.svg";
+import Result from "../../assets/result.svg";
+import More from "../../assets/more.svg";
 
 const NAV_ITEMS: NavItem[] = [
-  { name: "Play", href: "/play", icon: <PlayCircle size={24} /> },
-  { name: "Result", href: "/result", icon: <CheckCircle size={24} /> },
-  { name: "History", href: "/history", icon: <Clock size={24} /> },
-  { name: "Winner", href: "/winners", icon: <Trophy size={24} /> },
-  { name: "More", href: "/more", icon: <MoreHorizontal size={24} /> },
+  { name: "Play", href: "/play", icon: Home },
+  { name: "Result", href: "/result", icon: Result },
+  { name: "History", href: "/history", icon: History },
+  { name: "Winner", href: "/winners", icon: Winner },
+  { name: "More", href: "/more", icon: More },
 ];
 
 const Navigation: React.FC<NavigationProps> = ({ variant }) => {
@@ -20,7 +25,11 @@ const Navigation: React.FC<NavigationProps> = ({ variant }) => {
   const activeStyles = "text-[#6117FF] bg-[#6117FF]/10";
   const inactiveTextColor = theme === "dark" ? "text-white" : "text-black";
 
-  return variant === "desktop" ? <DesktopNav activeStyles={activeStyles} inactiveTextColor={inactiveTextColor} location={location} /> : <MobileNav activeStyles={activeStyles} inactiveTextColor={inactiveTextColor} location={location} />;
+  return variant === "desktop" ? (
+    <DesktopNav activeStyles={activeStyles} inactiveTextColor={inactiveTextColor} location={location} />
+  ) : (
+    <MobileNav activeStyles={activeStyles} inactiveTextColor={inactiveTextColor} location={location} />
+  );
 };
 
 const DesktopNav: React.FC<NavigationComponentProps> = ({ activeStyles, inactiveTextColor, location }) => (
@@ -30,7 +39,7 @@ const DesktopNav: React.FC<NavigationComponentProps> = ({ activeStyles, inactive
         {/* Logo */}
         <div className="flex items-center">
           <span className="text-xl font-bold text-primary flex items-center">
-            <Nfc /> Lottery Bee
+            <img src={Home} alt="Logo" className="w-6 h-6 mr-2" /> Lottery Bee
           </span>
         </div>
 
@@ -39,7 +48,15 @@ const DesktopNav: React.FC<NavigationComponentProps> = ({ activeStyles, inactive
           {NAV_ITEMS.map(({ name, href, icon }) => {
             const isActive = location.pathname === href;
             return (
-              <NavItemLink key={name} name={name} href={href} icon={icon} isActive={isActive} activeStyles={activeStyles} inactiveTextColor={inactiveTextColor} />
+              <NavItemLink 
+                key={name} 
+                name={name} 
+                href={href} 
+                icon={icon} 
+                isActive={isActive} 
+                activeStyles={activeStyles} 
+                inactiveTextColor={inactiveTextColor} 
+              />
             );
           })}
           <div className="ml-2">
@@ -56,8 +73,12 @@ const MobileNav: React.FC<NavigationComponentProps> = ({ activeStyles, inactiveT
     {NAV_ITEMS.map(({ name, href, icon }) => {
       const isActive = location.pathname === href;
       return (
-        <Link key={name} to={href} className={`flex flex-col items-center px-3 py-2 ${isActive ? activeStyles : inactiveTextColor}`}>
-          {icon}
+        <Link 
+          key={name} 
+          to={href} 
+          className={`flex flex-col items-center px-3 py-2 transition-all duration-200 ${isActive ? activeStyles : inactiveTextColor} hover:bg-[#6117FF]/10 hover:text-[#6117FF]`}
+        >
+          <img src={icon} alt={name} className="w-6 h-6 transition-all duration-200" />
           <span className="text-xs mt-1">{name}</span>
           {isActive && <div className="w-1.5 h-1.5 bg-[#6117FF] rounded-full mt-1" />}
         </Link>
@@ -67,9 +88,13 @@ const MobileNav: React.FC<NavigationComponentProps> = ({ activeStyles, inactiveT
 );
 
 const NavItemLink: React.FC<NavItemLinkProps> = ({ name, href, icon, isActive, activeStyles, inactiveTextColor }) => (
-  <Link to={href} className={`px-4 py-2 mx-1 rounded-md text-sm font-medium flex items-center ${isActive ? activeStyles : `${inactiveTextColor} hover:bg-secondary`}`}>
-    <span className={`mr-2 ${isActive ? activeStyles : "text-secondary"}`}>{icon}</span>
-    <span className={`${isActive ? activeStyles : "text-secondary"}`}>{name}</span>
+  <Link 
+    to={href} 
+    className={`px-4 py-2 mx-1 rounded-md text-sm font-medium flex items-center transition-all duration-200 
+    ${isActive ? activeStyles : `${inactiveTextColor} hover:bg-[#6117FF]/10 hover:text-[#6117FF]`}`}
+  >
+    <img src={icon} alt={name} className="w-6 h-6 mr-2 transition-all duration-200" />
+    <span>{name}</span>
   </Link>
 );
 

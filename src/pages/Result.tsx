@@ -1,6 +1,4 @@
-
-
-import Card from "../components/common/Card"
+import Card from "../components/common/Card";
 
 const mockResults = [
   {
@@ -39,14 +37,60 @@ const mockResults = [
     totalTickets: 26,
     totalAmount: "₹52.00",
   },
-]
+  {
+    id: 5,
+    title: "Late Night Draw",
+    subtitle: "Apr 24, 2024 | 12:00 AM",
+    numbers: [1, 14, 27, 38, 59],
+    badgeText: "Late Night",
+    totalTickets: 20,
+    totalAmount: "₹40.00",
+  },
+  {
+    id: 6,
+    title: "Super Draw",
+    subtitle: "Apr 24, 2024 | 8:00 PM",
+    numbers: [9, 22, 30, 42, 57],
+    badgeText: "Super",
+    totalTickets: 25,
+    totalAmount: "₹50.00",
+  },
+  {
+    id: 7,
+    title: "Mega Draw",
+    subtitle: "Apr 24, 2024 | 11:00 PM",
+    numbers: [2, 18, 26, 34, 53],
+    badgeText: "Mega",
+    totalTickets: 28,
+    totalAmount: "₹56.00",
+  },
+  {
+    id: 8,
+    title: "Ultimate Draw",
+    subtitle: "Apr 24, 2024 | 9:00 PM",
+    numbers: [6, 21, 32, 40, 51],
+    badgeText: "Ultimate",
+    totalTickets: 32,
+    totalAmount: "₹64.00",
+  },
+  {
+    id: 9,
+    title: "Jackpot Draw",
+    subtitle: "Apr 24, 2024 | 5:00 PM",
+    numbers: [8, 20, 31, 45, 58],
+    badgeText: "Jackpot",
+    totalTickets: 35,
+    totalAmount: "₹70.00",
+  },
+];
 
 export default function ResultPage() {
   return (
-    <div className="pt-20 md:pb-8 px-4 max-w-4xl mx-auto">
+    <div className="pt-20 md:pb-8 px-4 max-w-6xl mx-auto">
       <h2 className="text-2xl font-bold mb-6 text-center text-secondary">🎉 Latest Results</h2>
 
-      <div className="space-y-6">
+      {/* Grid Layout: 1 Card Per Row (Mobile) | 3 Cards Per Row (Desktop) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {mockResults.map((result) => (
           <Card
             key={result.id}
@@ -60,8 +104,5 @@ export default function ResultPage() {
         ))}
       </div>
     </div>
-  )
+  );
 }
-
-
-

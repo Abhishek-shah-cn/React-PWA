@@ -12,7 +12,8 @@ export interface CardProps {
 export interface NavItem {
   name: string;
   href: string; 
-  icon: React.ReactNode;
+  icon: string;
+ 
 }
 
 export type NavigationVariant = "mobile" | "desktop";
@@ -24,7 +25,7 @@ export interface NavigationProps {
 export interface NavItemLinkProps {
   name: string;
   href: string;
-  icon: React.ReactNode;
+  icon: string;
   isActive: boolean;
   activeStyles: string;
   inactiveTextColor: string;

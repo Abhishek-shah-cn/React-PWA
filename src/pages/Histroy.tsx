@@ -20,15 +20,19 @@ const timeSlotImageMap: Record<OrderTimeSlot, string> = {
 
 const History: React.FC = () => {
   return (
-    <div className="pt-20 pb-8 px-4 max-w-4xl mx-auto">
+    <div className="pt-20 pb-8 px-4 max-w-6xl mx-auto">
       <h2 className="text-2xl font-bold mb-6 text-center text-secondary">
         📜 Order History
       </h2>
-      <div className="space-y-6">
+
+      {/* Grid Layout: Mobile (1), Tablet (2), Desktop (3) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {orders.length > 0 ? (
           orders.map((order) => <OrderCard key={order.id} order={order} />)
         ) : (
-          <p className="text-center text-gray-500">No orders found.</p>
+          <p className="text-center text-gray-500 col-span-full">
+            No orders found.
+          </p>
         )}
       </div>
     </div>
@@ -82,9 +86,9 @@ const OrderCard: React.FC<{ order: Order }> = ({ order }) => {
       {/* Order Details */}
       <div className="grid grid-cols-2 gap-4">
         <div className="text-sm text-gray-600">Total Tickets</div>
-        <div className="text-lg font-bold">{order.totalTickets}</div>
+        <div className="text-lg font-bold text-end">{order.totalTickets}</div>
         <div className="text-sm text-gray-600">Total Amount</div>
-        <div className="text-lg font-bold text-green-600">
+        <div className="text-lg font-bold text-green-600 text-end">
           ₹{order.totalAmount.toFixed(2)}
         </div>
       </div>
