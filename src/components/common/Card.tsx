@@ -12,7 +12,7 @@ const Card: React.FC<CardProps> = ({ title, subtitle, numbers, badgeText, totalT
 
       {/* Badge */}
       {badgeText && (
-        <span className="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-lg text-xs font-semibold shadow-md">
+        <span className="absolute top-1 right-1 bg-orange-500 text-white px-3 py-1 rounded-lg text-xs font-semibold shadow-md">
           {badgeText}
         </span>
       )}

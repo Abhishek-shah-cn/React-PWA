@@ -45,12 +45,12 @@ const OrderCard: React.FC<{ order: Order }> = ({ order }) => {
       className={`relative p-5 rounded-xl shadow-md transition-all transform hover:scale-[1.03] ${timeSlotGradients[order.timeSlot]}`}
     >
       {/* Badge */}
-      <span className="absolute top-2 right-2 bg-black/20 text-white px-3 py-1 border-l-2 border-b-2 border-white rounded-bl-lg text-xs font-semibold shadow-md">
+      <span className="absolute top-0 right-0 rounded-l-r bg-black/20 text-white px-3 py-1 border-l-2 border-b-2 border-white rounded-bl-lg text-xs font-semibold shadow-md">
         {order.timeSlot}
       </span>
 
       {/* Header Section */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4 ">
         {/* Image */}
         <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-md">
           <img

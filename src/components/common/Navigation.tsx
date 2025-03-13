@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "../theme-toggle";
 import { useTheme } from "../theme-provider";
 import { NavItem, NavigationProps, NavItemLinkProps, NavigationComponentProps } from "../../lib/types"; 
+import { ChartNoAxesCombined } from 'lucide-react';
 
 import Home from "../../assets/home.svg";
 import History from "../../assets/history.svg";
@@ -36,14 +37,12 @@ const DesktopNav: React.FC<NavigationComponentProps> = ({ activeStyles, inactive
   <nav className="bg-card dark:bg-card shadow-md">
     <div className="max-w-7xl mx-auto px-4">
       <div className="flex justify-between h-16">
-        {/* Logo */}
         <div className="flex items-center">
           <span className="text-xl font-bold text-primary flex items-center">
-            <img src={Home} alt="Logo" className="w-6 h-6 mr-2" /> Lottery Bee
-          </span>
+            <ChartNoAxesCombined/>
+             Lottery Bee
+           </span>
         </div>
-
-        {/* Navigation Items */}
         <div className="flex items-center">
           {NAV_ITEMS.map(({ name, href, icon }) => {
             const isActive = location.pathname === href;
@@ -76,9 +75,11 @@ const MobileNav: React.FC<NavigationComponentProps> = ({ activeStyles, inactiveT
         <Link 
           key={name} 
           to={href} 
-          className={`flex flex-col items-center px-3 py-2 transition-all duration-200 ${isActive ? activeStyles : inactiveTextColor} hover:bg-[#6117FF]/10 hover:text-[#6117FF]`}
+          className={`group flex flex-col items-center px-3 py-2 transition-all duration-200 
+          ${isActive ? activeStyles : inactiveTextColor} hover:bg-[#6117FF]/10 hover:text-[#6117FF]`}
         >
-          <img src={icon} alt={name} className="w-6 h-6 transition-all duration-200" />
+          <img src={icon} alt={name} className={`w-6 h-6 transition-all duration-200 
+          ${isActive ? "fill-[#6117FF]" : "fill-current group-hover:fill-[#6117FF]"}`} />
           <span className="text-xs mt-1">{name}</span>
           {isActive && <div className="w-1.5 h-1.5 bg-[#6117FF] rounded-full mt-1" />}
         </Link>
@@ -90,10 +91,11 @@ const MobileNav: React.FC<NavigationComponentProps> = ({ activeStyles, inactiveT
 const NavItemLink: React.FC<NavItemLinkProps> = ({ name, href, icon, isActive, activeStyles, inactiveTextColor }) => (
   <Link 
     to={href} 
-    className={`px-4 py-2 mx-1 rounded-md text-sm font-medium flex items-center transition-all duration-200 
+    className={`group px-4 py-2 mx-1 rounded-md text-sm font-medium flex items-center transition-all duration-200 
     ${isActive ? activeStyles : `${inactiveTextColor} hover:bg-[#6117FF]/10 hover:text-[#6117FF]`}`}
   >
-    <img src={icon} alt={name} className="w-6 h-6 mr-2 transition-all duration-200" />
+    <img src={icon} alt={name} className={`w-6 h-6 mr-2 transition-all duration-200 
+    ${isActive ? "fill-[#6117FF]" : "fill-current group-hover:fill-[#6117FF]"}`} />
     <span>{name}</span>
   </Link>
 );
